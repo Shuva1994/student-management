@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% block page_title %}Home{% endblock page_title %}
+{% block main_content %}
+{% load static %}
+<div class="row">
+    <div class="col-xl-3 col-sm-6 col-12 d-flex">
+     
+       <div class="card bg-comman w-100">
+          <div class="card-body">
+             <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                   <h6><a href="{% url 'list_student' %}"> Students</a></h6>
+                   <h3>{{ student }}</h3>
+                </div>
+                <div class="db-icon">
+                   <img src="{% static 'assets/img/icons/dash-icon-01.svg' %}" alt="Dashboard Icon">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 d-flex">
+       <div class="card bg-comman w-100">
+          <div class="card-body">
+             <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                  <h6><a href="{% url 'list_teacher' %}"> Teachers</a></h6>
+                   <h3>{{ teacher }}</h3>
+                </div>
+                <div class="db-icon">
+                    <img src="{% static 'assets/img/icons/dash-icon-02.svg' %}" alt="Dashboard Icon">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 d-flex">
+       <div class="card bg-comman w-100">
+          <div class="card-body">
+             <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                  <h6><a href="{% url 'list_class' %}"> Class</a></h6>
+                   <h3>{{ classs }}</h3>
+                </div>
+                <div class="db-icon">
+                   <img src="{% static 'assets/img/icons/dash-icon-03.svg' %}" alt="Dashboard Icon">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 d-flex">
+       <div class="card bg-comman w-100">
+          <div class="card-body">
+             <div class="db-widgets d-flex justify-content-between align-items-center">
+                <div class="db-info">
+                  <h6><a href=""> Notification</a></h6>
+                </div>
+                <div class="db-icon">
+                   <img src="{% static 'assets/img/icons/notification.png' %}" alt="Dashboard Icon">
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="row">
+    <div class="col-md-12 col-lg-6">
+       <div class="card card-chart">
+          <div class="card-header">
+             <div class="row align-items-center">
+                <div class="col-6">
+                   <h5 class="card-title">Overview</h5>
+                </div>
+                <div class="col-6">
+                   <ul class="chart-list-out">
+                      <li><span class="circle-blue"></span>Teacher</li>
+                      <li><span class="circle-green"></span>Student</li>
+                      <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+          <div class="card-body">
+             <div id="apexcharts-area"></div>
+          </div>
+       </div>
+    </div>
+    <div class="col-md-12 col-lg-6">
+       <div class="card card-chart">
+          <div class="card-header">
+             <div class="row align-items-center">
+                <div class="col-6">
+                   <h5 class="card-title">Number of Students</h5>
+                </div>
+                <div class="col-6">
+                   <ul class="chart-list-out">
+                      <li><span class="circle-blue"></span>Girls</li>
+                      <li><span class="circle-green"></span>Boys</li>
+                      <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+          <div class="card-body">
+             <div id="bar"></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="row">
+    <div class="col-xl-6 d-flex">
+       <div class="card flex-fill student-space comman-shadow">
+          <div class="card-header d-flex align-items-center">
+             <h5 class="card-title">Star Students</h5>
+             <ul class="chart-list-out student-ellips">
+                <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
+             </ul>
+          </div>
+          <div class="card-body">
+             <div class="table-responsive">
+                <table class="table star-student table-hover table-center table-borderless table-striped">
+                   <thead class="thead-light">
+                      <tr>
+                         <th>ID</th>
+                         <th>Name</th>
+                         <th class="text-center">Marks</th>
+                         <th class="text-center">Percentage</th>
+                         <th class="text-end">Year</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr>
+                         <td class="text-nowrap">
+                            <div>TRE2354</div>
+                         </td>
+                         <td class="text-nowrap">
+                            <a href="profile.html">
+                            <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-02.jpg' %}" width="25" alt="Star Students">
+                            Kritika Bahl
+                            </a>
+                         </td>
+                         <td class="text-center">1185</td>
+                         <td class="text-center">98%</td>
+                         <td class="text-end">
+                            <div>2019</div>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td class="text-nowrap">
+                            <div>TRE7810</div>
+                         </td>
+                         <td class="text-nowrap">
+                            <a href="profile.html">
+                            <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" width="25" alt="Star Students">
+                            Survindar Sharma
+                            </a>
+                         </td>
+                         <td class="text-center">1105</td>
+                         <td class="text-center">92.08%</td>
+                         <td class="text-end">
+                            <div>2018</div>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td class="text-nowrap">
+                            <div>TRE9060</div>
+                         </td>
+                         <td class="text-nowrap">
+                            <a href="profile.html">
+                            <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-03.jpg' %}" width="25" alt="Star Students">
+                            Jolly Roy
+                            </a>
+                         </td>
+                         <td class="text-center">1196</td>
+                         <td class="text-center">99.6%</td>
+                         <td class="text-end">
+                            <div>2017</div>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td class="text-nowrap">
+                            <div>TRE2516</div>
+                         </td>
+                         <td class="text-nowrap">
+                            <a href="profile.html">
+                            <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-04.jpg' %}" width="25" alt="Star Students">
+                            John Abraham
+                            </a>
+                         </td>
+                         <td class="text-center">1140</td>
+                         <td class="text-center">95%</td>
+                         <td class="text-end">
+                            <div>2016</div>
+                         </td>
+                      </tr>
+                      <tr>
+                         <td class="text-nowrap">
+                            <div>TRE2143</div>
+                         </td>
+                         <td class="text-nowrap">
+                            <a href="profile.html">
+                            <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-05.jpg' %}" width="25" alt="Star Students">
+                            Kasira Khan
+                            </a>
+                         </td>
+                         <td class="text-center">1185</td>
+                         <td class="text-center">98%</td>
+                         <td class="text-end">
+                            <div>2015</div>
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="col-xl-6 d-flex">
+       <div class="card flex-fill comman-shadow">
+          <div class="card-header d-flex align-items-center">
+             <h5 class="card-title ">Student Activity </h5>
+             <ul class="chart-list-out student-ellips">
+                <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
+             </ul>
+          </div>
+          <div class="card-body">
+             <div class="activity-groups">
+                <div class="activity-awards">
+                   <div class="award-boxs">
+                      <img src="{% static 'assets/img/icons/award-icon-01.svg' %}" alt="Award">
+                   </div>
+                   <div class="award-list-outs">
+                      <h4>Annual Function</h4>
+                      <h5>John won 1st place in "Chess"</h5>
+                   </div>
+                   <div class="award-time-list">
+                      <span>1 Day ago</span>
+                   </div>
+                </div>
+                <div class="activity-awards">
+                   <div class="award-boxs">
+                      <img src="{% static 'assets/img/icons/award-icon-02.svg' %}" alt="Award">
+                   </div>
+                   <div class="award-list-outs">
+                      <h4>Webinar at St. Joseph</h4>
+                      <h5>Students of Class-7 participated in Webinar.</h5>
+                   </div>
+                   <div class="award-time-list">
+                      <span>1 week ago</span>
+                   </div>
+                </div>
+                <div class="activity-awards">
+                   <div class="award-boxs">
+                      <img src="{% static 'assets/img/icons/award-icon-03.svg' %}" alt="Award">
+                   </div>
+                   <div class="award-list-outs">
+                      <h4>Science Exhibition at Sai International School</h4>
+                      <h5>Students of Class-9 with their mentor attended this.</h5>
+                   </div>
+                   <div class="award-time-list">
+                      <span>2 Week ago</span>
+                   </div>
+                </div>
+                <div class="activity-awards mb-0">
+                   <div class="award-boxs">
+                      <img src="{% static 'assets/img/icons/award-icon-04.svg' %}" alt="Award">
+                   </div>
+                   <div class="award-list-outs">
+                      <h4>Won 1st place in "Dance"</h4>
+                      <h5>Sasmita of Class-10 won 1st place in "Dance"</h5>
+                   </div>
+                   <div class="award-time-list">
+                      <span>3 Day ago</span>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+{% endblock main_content %}
+
+

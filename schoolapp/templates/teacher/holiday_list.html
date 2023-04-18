@@ -1,0 +1,377 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>OSMS Admin - Holiday List</title>
+
+<link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/feather/feather.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/icons/flags/flags.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+ {% block custom_css %}
+ {% endblock custom_css %}
+</head>
+<body>
+
+<div class="main-wrapper">
+
+<div class="header">
+
+<div class="header-left">
+<a href="index.html" class="logo">
+<img src="{% static 'assets/img/logo1.png' %}" alt="Logo">
+</a>
+<a href="index.html" class="logo logo-small">
+<img src="{% static 'assets/img/logo-small1.png' %}" alt="Logo" width="30" height="30">
+</a>
+</div>
+
+<div class="menu-toggle">
+<a href="javascript:void(0);" id="toggle_btn">
+<i class="fas fa-bars"></i>
+</a>
+</div>
+
+
+<a class="mobile_btn" id="mobile_btn">
+<i class="fas fa-bars"></i>
+</a>
+
+
+<ul class="nav user-menu">
+<li class="nav-item dropdown noti-dropdown language-drop me-2">
+<a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
+<img src="{% static 'assets/img/icons/header-icon-01.svg' %}" alt="">
+</a>
+<div class="dropdown-menu ">
+<div class="noti-content">
+<div>
+<a class="dropdown-item" href="javascript:;"><i class="flag flag-lr me-2"></i>English</a>
+</div>
+</div>
+</div>
+</li>
+
+{% include 'teacher_template/notification_template.html' %}
+
+
+<li class="nav-item zoom-screen me-2">
+<a href="#" class="nav-link header-nav-list win-maximize">
+<img src="{% static 'assets/img/icons/header-icon-04.svg' %}" alt="">
+</a>
+</li>
+
+<li class="nav-item dropdown has-arrow new-user-menus">
+<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+<span class="user-img">
+<img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.png' %}" width="31" alt="Ryan Taylor">
+<div class="user-text">
+<h6>Subham</h6>
+<p class="text-muted mb-0">Teacher</p>
+</div>
+</span>
+</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="profile.html">My Profile</a>
+<a class="dropdown-item" href="login.html">Logout</a>
+</div>
+</li>
+</ul>
+</div>
+
+ {% include 'teacher_template/sidebar_template.html' %}
+
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col">
+<h3 class="page-title">Holiday List</h3>
+<ul class="breadcrumb">
+<li class="breadcrumb-item active">Home/ Holiday List</li>
+</ul>
+</div>
+</div>
+</div>
+
+    <div class="row">
+<div class="col-sm-12">
+<div class="card card-table">
+<div class="card-body">
+
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col">
+<h3 class="page-title">Holiday</h3>
+</div>
+<div class="col-auto text-end float-end ms-auto download-grp">
+<a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+<a href="add-holiday.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+<thead class="student-thread">
+<tr>
+<th>ID</th>
+<th>Holiday Name</th>
+<th>Type</th>
+<th>Start Date</th>
+<th>End Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRE2209</td>
+<td>
+<h2>
+<a>Sports Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>17 Aug 2020</td>
+<td>19 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2213</td>
+<td>
+<h2>
+<a>Memorial Day</a>
+</h2>
+</td>
+<td>Public Holiday</td>
+<td>05 Aug 2020</td>
+<td>06 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2143</td>
+<td>
+<h2>
+<a>Annual Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>04 Sept 2020</td>
+<td>07 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2431</td>
+<td>
+<h2>
+<a>Exam Holiday</a>
+</h2>
+</td>
+<td>Semester leave</td>
+<td>17 Sept 2020</td>
+<td>30 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2209</td>
+<td>
+<h2>
+<a>Sports Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>17 Aug 2020</td>
+<td>19 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2213</td>
+<td>
+<h2>
+<a>Memorial Day</a>
+</h2>
+</td>
+<td>Public Holiday</td>
+<td>05 Aug 2020</td>
+<td>06 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2143</td>
+<td>
+<h2>
+<a>Annual Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>04 Sept 2020</td>
+<td>07 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2431</td>
+<td>
+<h2>
+<a>Exam Holiday</a>
+</h2>
+</td>
+<td>Semester leave</td>
+<td>17 Sept 2020</td>
+<td>30 Sept 2020</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="row">
+<div class="col-sm-12">
+<div class="card card-table">
+<div class="card-body">
+
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col">
+<h3 class="page-title">Holiday</h3>
+</div>
+<div class="col-auto text-end float-end ms-auto download-grp">
+<a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+<a href="add-holiday.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+<thead class="student-thread">
+<tr>
+<th>ID</th>
+<th>Holiday Name</th>
+<th>Type</th>
+<th>Start Date</th>
+<th>End Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRE2209</td>
+<td>
+<h2>
+<a>Sports Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>17 Aug 2020</td>
+<td>19 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2213</td>
+<td>
+<h2>
+<a>Memorial Day</a>
+</h2>
+</td>
+<td>Public Holiday</td>
+<td>05 Aug 2020</td>
+<td>06 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2143</td>
+<td>
+<h2>
+<a>Annual Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>04 Sept 2020</td>
+<td>07 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2431</td>
+<td>
+<h2>
+<a>Exam Holiday</a>
+</h2>
+</td>
+<td>Semester leave</td>
+<td>17 Sept 2020</td>
+<td>30 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2209</td>
+<td>
+<h2>
+<a>Sports Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>17 Aug 2020</td>
+<td>19 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2213</td>
+<td>
+<h2>
+<a>Memorial Day</a>
+</h2>
+</td>
+<td>Public Holiday</td>
+<td>05 Aug 2020</td>
+<td>06 Aug 2020</td>
+</tr>
+<tr>
+<td>PRE2143</td>
+<td>
+<h2>
+<a>Annual Day</a>
+</h2>
+</td>
+<td>College Holiday</td>
+<td>04 Sept 2020</td>
+<td>07 Sept 2020</td>
+</tr>
+<tr>
+<td>PRE2431</td>
+<td>
+<h2>
+<a>Exam Holiday</a>
+</h2>
+</td>
+<td>Semester leave</td>
+<td>17 Sept 2020</td>
+<td>30 Sept 2020</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'assets/js/feather.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% block custom_js %}
+{% endblock custom_js %}
+</body>
+</html>

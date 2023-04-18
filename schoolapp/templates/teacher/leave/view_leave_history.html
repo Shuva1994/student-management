@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">View Leave History</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Leave/ Leave Status</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="page-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="page-title">Class</h3>
+                                </div>
+                                <div class="col-auto text-end float-end ms-auto download-grp">
+                                    <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+                                    <a href="{% url 'add_class'  %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% include 'partials/alert.html' %}
+                        <div class="table-responsive">
+                            <table table id="table_id" class="table border-0 star-student table-hover table-center mb-0  table-striped">
+                                <thead class="student-thread">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Teacher Name</th>
+                                        <th>leave Type</th>
+                                        <th>No of days</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                {% for i in teacher_leave_history %}
+                                <tbody>
+                                    <tr>
+                                        <td>{{i.id }}</td>
+                                        <td>{{i.teacher}}</td>
+                                        <td>{{i.leave_type}}</td>
+                                        <td>{{i.No_of_days}}</td>
+                                        <td>{{i.start_date}}</td>
+                                        <td>{{i.end_date}}</td>
+                                        <td >   
+                                            <div >
+                                                {% if i.status == 0 %}
+                                                <span class="badge badge-warning">Pending</span>
+                                                {% elif i.status == 1 %}
+                                                <span class="badge badge-success">Approved</span>
+                                                {% else %}
+                                                <span class="badge badge-danger">Rejected</span>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock main_content %}

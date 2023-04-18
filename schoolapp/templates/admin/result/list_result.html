@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Result List</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Home/ Result List</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/alert.html' %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="page-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="page-title">Result</h3>
+                                </div>
+                                <div class="col-auto text-end float-end ms-auto download-grp">
+                                    
+                                    <a href="{% url 'add_result' %}" class="btn btn-primary"><i class="fas fa-plus"></i>Add Result</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table table id="table_id" class="table border-0 star-student table-hover table-center mb-0  table-striped">
+                                <thead class="student-thread">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Student Name</th>
+                                        <th>Exam Name</th>
+                                        <th>Total Marks</th>
+                                        <th>Secured Marks</th>
+                                        <th class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                {% for i in results %}
+                                <tbody>
+                                        <td>{{i.id}}</td>
+                                        <td>{{i.student.admin.first_name}} {{i.student.admin.last_name}} </td>
+                                        <td>{{i.exam.name}}</td>
+                                        <td>{{i.Total_marks}}</td>
+                                        <td>{{i.marks}}</td>
+                                        <td>   
+                                            <a href="{% url 'edit_result'  i.id  %}" class="btn btn-sm bg-danger-light"><i class="feather-edit"></i></a>
+                                            <a href="{% url 'delete_result'  i.id %}" class="btn btn-sm bg-danger-light"><i class="fas fa-trash"></i></a>                          
+                                        </td>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main_content %}

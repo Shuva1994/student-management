@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>OSMS Admin - Edit Exam</title>
+
+<link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/feather/feather.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/icons/flags/flags.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+ {% block custom_css %}
+ {% endblock custom_css %}
+</head>
+<body>
+
+<div class="main-wrapper">
+
+<div class="header">
+
+<div class="header-left">
+<a href="index.html" class="logo">
+<img src="{% static 'assets/img/logo1.png' %}" alt="Logo">
+</a>
+<a href="index.html" class="logo logo-small">
+<img src="{% static 'assets/img/logo-small1.png' %}" alt="Logo" width="30" height="30">
+</a>
+</div>
+
+<div class="menu-toggle">
+<a href="javascript:void(0);" id="toggle_btn">
+<i class="fas fa-bars"></i>
+</a>
+</div>
+
+
+<a class="mobile_btn" id="mobile_btn">
+<i class="fas fa-bars"></i>
+</a>
+
+
+<ul class="nav user-menu">
+<li class="nav-item dropdown noti-dropdown language-drop me-2">
+<a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
+<img src="{% static 'assets/img/icons/header-icon-01.svg' %}" alt="">
+</a>
+<div class="dropdown-menu ">
+<div class="noti-content">
+<div>
+<a class="dropdown-item" href="javascript:;"><i class="flag flag-lr me-2"></i>English</a>
+</div>
+</div>
+</div>
+</li>
+
+{% include 'teacher_template/notification_template.html' %}
+
+
+<li class="nav-item zoom-screen me-2">
+<a href="#" class="nav-link header-nav-list win-maximize">
+<img src="{% static 'assets/img/icons/header-icon-04.svg' %}" alt="">
+</a>
+</li>
+
+<li class="nav-item dropdown has-arrow new-user-menus">
+<a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+<span class="user-img">
+<img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.png' %}" width="31" alt="Ryan Taylor">
+<div class="user-text">
+<h6>Subham</h6>
+<p class="text-muted mb-0">Teacher</p>
+</div>
+</span>
+</a>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="profile.html">My Profile</a>
+<a class="dropdown-item" href="login.html">Logout</a>
+</div>
+</li>
+</ul>
+</div>
+
+ {% include 'teacher_template/sidebar_template.html' %}
+
+
+<div class="page-wrapper">
+<div class="content container-fluid">
+
+<div class="page-header">
+<div class="row align-items-center">
+<div class="col">
+<h3 class="page-title">Edit Exam List</h3>
+<ul class="breadcrumb">
+<li class="breadcrumb-item active">Exam List/ Edit Exam List</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-body">
+<form>
+<div class="row">
+<div class="col-12">
+<h5 class="form-title"><span>Exam Information</span></h5>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Exam Name <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="Class Test">
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Class <span class="login-danger">*</span></label>
+<select class="form-control select">
+<option>10</option>
+<option>LKG</option>
+<option>UKG</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+</select>
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Subject <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="English">
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Fees <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="$50">
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Start Time <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="10:00 AM">
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>End Time <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="01:00 PM">
+</div>
+</div>
+<div class="col-12 col-sm-4">
+<div class="form-group local-forms">
+<label>Event Date <span class="login-danger">*</span></label>
+<input type="text" class="form-control" value="26-11-2020">
+</div>
+</div>
+<div class="col-12">
+<div class="student-submit">
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'assets/js/feather.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+{% block custom_js %}
+{% endblock custom_js %}
+</body>
+</html>

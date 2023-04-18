@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Edit Students</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Students/ Edit Students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form role="form" action="/add_teacher_save" method="post">
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Basic Details</span></h5>
+                                    </div>
+
+                                    {% include 'partials/alert.html' %}
+                                    {% for i in student %}
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>First Name <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.admin.first_name}}" placeholder="Enter First Name" name="first_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Last Name <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.admin.last_name}}" placeholder="Enter Last Name" name="last_name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label for="gender">Gender <span class="login-danger">*</span></label>
+                                            <select class="form-control select" id="sex" name="gender">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Date Of Birth <span class="login-danger">*</span></label>
+                                            <input type="date" class="form-control" value="{{i.dob}}" placeholder="DD-MM-YYYY" name="dob">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                       <div class="form-group local-forms">
+                                           <label>Guardian Name <span class="login-danger">*</span></label>
+                                           <input type="text" class="form-control" value="{{i.guardian_name}}" placeholder="Enter Phone" name="phone_number">
+                                       </div>
+                                   </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Contact No <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.contact}}" placeholder="Enter Phone" name="phone_number">
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    <div class="col-12">
+                                       <h5 class="form-title"><span>Academics Details</span></h5>
+                                   </div>
+                                   
+                                    <div class="col-12 col-sm-4">
+                                          <div class="form-group local-forms">
+                                             <label>Session Year <span class="login-danger">*</span></label>
+                                             <select class="form-control" name="session_year_id" required>
+                                                <option>Select Session Year</option>
+                                                   {% for i in session_year %}
+                                                <option value="{{i.id}}">{{i.session_start}}</option>
+                                                {% endfor %}
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-4">
+                                          <div class="form-group local-forms">
+                                             <label for="course">Class <span class="login-danger">*</span></label>
+                                             <select class="form-control select" id="course_id" name="course_id">
+                                                <option>Select Course</option>
+                                                {% for i in course %}
+                                                   <option value="{{ i.id }}">{{ i.name }}</option>
+                                                {% endfor %}
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-12 col-sm-4">
+                                          <div class="form-group local-forms">
+                                              <label>Section <span class="login-danger">*</span></label>
+                                              <input type="text" class="form-control" value="{{i.admin.username}}" placeholder="Enter First Name" name="first_name">
+                                          </div>
+                                      </div>
+                                      <div class="col-12 col-sm-4">
+                                          <div class="form-group local-forms">
+                                              <label>Roll Number <span class="login-danger">*</span></label>
+                                              <input type="text" class="form-control" value="{{i.admin.username}}" placeholder="Enter Last Name" name="last_name">
+                                          </div>
+                                      </div>
+
+
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Login Details</span></h5>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Username <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.admin.username}}" placeholder="Enter Username" name="username">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Email ID <span class="login-danger">*</span></label>
+                                            <input type="email" class="form-control" value="{{i.admin.email}}" placeholder="Enter Mail Id" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Password <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Enter Password" name="password">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Address</span></h5>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group local-forms">
+                                            <label>Address <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.address}}" placeholder="Enter address" name="address">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>City <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.city}}" placeholder="Enter City" name="city">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>State <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.state}}" placeholder="Enter State" name="state">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Zip Code <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.zipcode}}" placeholder="Enter Zip" name="zipcode">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Country <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" value="{{i.country}}" placeholder="Enter Country" name="country">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="student-submit">
+                                            <button type="submit" class="btn btn-primary btn block">Add Student</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main_content %}

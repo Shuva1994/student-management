@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Apply For Leave</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Leave/Apply Leave</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form role="form" action="" method="post">
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label for="gender">Leave Type <span class="login-danger">*</span></label>
+                                            <select class="form-control select" id="leave" name="type">
+                                                    <option >Select Leave Type</option>
+                                                    <option value="sick leave">Medical Leave</option>
+                                                    <option value="personal leave">Personal Leave</option>
+                                                    <option value="birthday leave">Birthday Leave</option>
+                                                    <option value="others">Others</option>
+                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>No of Days <span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Enter Total days" name="days">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Details<span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="Enter Leave Details" name="details">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>leave satrt date <span class="login-danger">*</span></label>
+                                            <input type="date" class="form-control" placeholder="DD-MM-YYYY" name="sdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>leave end date <span class="login-danger">*</span></label>
+                                            <input type="date" class="form-control" placeholder="DD-MM-YYYY" name="edate">
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+
+                                {% include 'partials/alert.html' %}
+                                    <center>
+                                    <div class="col-12">
+                                        <div class="student-submit">
+                                            <button type="submit" class="btn btn-primary btn block">Apply leave</button>
+                                        </div>
+                                    </div>
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock main_content %}

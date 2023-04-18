@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Add Subject</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Subject/ Add Subject</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form role="form" action="" method="post">
+                            {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Subject Name </label>
+                                            <input type="text" class="form-control" placeholder="Enter Subject" name="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label for="course">Class <span class="login-danger">*</span></label>
+                                                <select class="form-control select" id="course" name="class">
+                                                    {% for i in classs %}
+                                                        <option value=" {{i.id }}">{{ i.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label for="teacher">Teacher <span class="login-danger">*</span></label>
+                                            <select class="form-control select" id="teacher" name="teacher">
+                                                {% for i in teacher %}
+                                                    <option value=" {{ i.id }}">{{ i.admin.first_name }} {{ i.admin.last_name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {% include 'partials/alert.html' %}
+
+                                    <div class="col-12">
+                                        <div class="student-submit">
+                                            <button type="submit" class="btn btn-primary btn block">Add Subject</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock main_content %}

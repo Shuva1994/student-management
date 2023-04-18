@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="page-header">
+   <div class="row align-items-center">
+      <div class="col">
+         <h3 class="page-title">Add Exam</h3>
+         <ul class="breadcrumb">
+            <li class="breadcrumb-item active">Exam/ Add Exam</li>
+         </ul>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-12">
+      <div class="card">
+         <div class="card-body">
+            <form method="post">
+               {% csrf_token %}
+               <div class="row">
+                  <div class="col-12">
+                     <h5 class="form-title"><span>Exam Information</span></h5>
+                  </div>
+                  <div class="col-12 col-sm-4">
+                     <div class="form-group local-forms">
+                        <label>Exam Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Exam Name" name="ex_name">
+                     </div>
+                  </div>
+                 
+                  <div class="col-12 col-sm-4">
+                    <div class="form-group local-forms">
+                       <label>Exam Date</label>
+                       <input type="date" class="form-control" name="date" required>
+                    </div>
+                 </div>
+                  <center>
+                  <div class="col-sm-12">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                  </center>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+
+{% endblock main_content %}
